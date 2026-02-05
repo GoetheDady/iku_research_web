@@ -8,11 +8,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pack": "node scripts/pack-deploy.js",
-    "pack:dev": "node scripts/pack-deploy.js --env=development",
-    "pack:prod": "node scripts/pack-deploy.js --env=production",
-    "build:pack": "pnpm run build && pnpm run pack:prod",
-    "build:pack:dev": "pnpm run build && pnpm run pack:dev",
     "build:docker": "docker build --platform linux/amd64 -t gptr-nextjs:latest -f ./Dockerfile . && docker save gptr-nextjs:latest | gzip > gptr-nextjs.tar.gz"
   },
   "dependencies": {
@@ -48,9 +43,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/uuid": "^10.0.0",
-    "archiver": "^7.0.1",
     "autoprefixer": "^10.4.20",
-    "cross-env": "^10.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
