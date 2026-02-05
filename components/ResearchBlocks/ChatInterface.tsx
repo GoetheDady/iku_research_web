@@ -62,7 +62,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
     
     try {
       // Make API call to chat endpoint
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/chat`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

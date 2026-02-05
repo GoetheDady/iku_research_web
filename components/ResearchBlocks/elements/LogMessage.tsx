@@ -71,7 +71,7 @@ const LogMessage: React.FC<LogMessageProps> = ({ logs }) => {
               className="w-full mx-auto rounded-lg pt-2 mt-3 pb-2 px-4 bg-[#EEF0F4] shadow-sm border border-[#CCCFD5]"
             >
               <p className="py-3 text-base leading-relaxed text-[#4D4D4D] dark:text-white">
-                <img src={`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/img/small-arrow.png`} alt="" className='inline-block mr-[8px] w-[8px]'/>
+                <img src={`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/img/small-arrow.png`} alt="" className='inline-block mr-[8px] w-[8px]'/>
                 {log.text}
               </p>
             </div>

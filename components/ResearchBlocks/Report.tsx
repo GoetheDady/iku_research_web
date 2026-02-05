@@ -38,7 +38,7 @@ export default function Report({ answer, researchId, accessData }: { answer: str
                 <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg> */}
             <img
-              src={`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/img/report-logo.png`}
+              src={`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/img/report-logo.png`}
               alt="message"
               width={24}
               height={24}
@@ -58,7 +58,7 @@ export default function Report({ answer, researchId, accessData }: { answer: str
                 className="hover:opacity-80 transition-opacity duration-200"
               >
                 <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/img/copy-white.svg`}
+                  src={`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/img/copy-white.svg`}
                   alt="copy"
                   width={20}
                   height={20}

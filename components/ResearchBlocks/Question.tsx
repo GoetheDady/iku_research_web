@@ -10,7 +10,7 @@ const Question: React.FC<QuestionProps> = ({ question }) => {
     <div className="w-full flex flex-col sm:flex-row items-start gap-3 pt-5 px-4 sm:px-6 py-4 rounded-lg bg-white shadow-lg">
       <div className="flex items-center gap-2 sm:gap-4 shrink-0">
         <img
-          src={`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/img/message-question-circle.png`}
+          src={`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/img/message-question-circle.png`}
           alt="message"
           width={24}
           height={24}

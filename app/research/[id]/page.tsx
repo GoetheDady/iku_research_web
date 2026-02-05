@@ -132,7 +132,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
       let foundInBackend = false;
       try {
         console.log(`Checking backend for research ${id}...`);
-        const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports/${id}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports/${id}`);
         
         if (response.ok) {
           console.log(`Found research ${id} in backend!`);
@@ -218,7 +218,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
             chatMessages: Array.isArray(localItem.chatMessages) ? JSON.parse(JSON.stringify(localItem.chatMessages)) : [],
           };
           
-          const saveResponse = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports`, {
+          const saveResponse = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -339,7 +339,7 @@ export default function ResearchPage({ params }: { params: { id: string } }) {
       }));
       
       // Call the chat API
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/chat`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

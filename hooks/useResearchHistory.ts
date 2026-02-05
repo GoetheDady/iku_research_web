@@ -32,7 +32,7 @@ export const useResearchHistory = () => {
           const localIds = localHistory.map((item: ResearchHistoryItem) => item.id).join(',');
           console.log(`Sending ${localHistory.length} local IDs to server for filtering`);
           
-          const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports?report_ids=${localIds}`);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports?report_ids=${localIds}`);
           if (response.ok) {
             const data = await response.json();
             
@@ -103,7 +103,7 @@ export const useResearchHistory = () => {
           
           console.log(`Uploading local report to server: ${report.id}`);
           
-          const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports`, {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export const useResearchHistory = () => {
       const id = uuidv4();
       
       // Save to backend
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ export const useResearchHistory = () => {
   const updateResearch = async (id: string, answer: string, orderedData: Data[]) => {
     try {
       // Update in backend
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -295,7 +295,7 @@ export const useResearchHistory = () => {
   // Get research by ID
   const getResearchById = async (id: string) => {
     try {
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports/${id}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports/${id}`);
       if (response.ok) {
         const data = await response.json();
         return data.report;
@@ -326,7 +326,7 @@ export const useResearchHistory = () => {
   // Delete research
   const deleteResearch = async (id: string) => {
     try {
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports/${id}`, {
         method: 'DELETE',
       });
       
@@ -367,7 +367,7 @@ export const useResearchHistory = () => {
   // Add chat message
   const addChatMessage = async (id: string, message: ChatMessage) => {
     try {
-      const response = await fetch(`${process.env.NODE_ENV === 'production' ? '/deep_research_show' : ''}/api/reports/${id}/chat`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_USE_PATH_PREFIX === 'true' ? '/deep_research_show' : ''}/api/reports/${id}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
