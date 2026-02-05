@@ -217,7 +217,7 @@ function HomeContent() {
     }
   };
 
-  const handleDisplayResult = async (newQuestion: string) => {
+  const handleDisplayResult = async (newQuestion: string, fileIds?: string[], taskId?: string) => {
     // Exit chat mode when starting a new research
     setIsInChatMode(false);
     setShowResult(true);
@@ -257,7 +257,7 @@ function HomeContent() {
         previousChunk = chunk;
       }
     } else {
-      initializeWebSocket(newQuestion, chatBoxSettings);
+      initializeWebSocket(newQuestion, chatBoxSettings, fileIds, taskId);
     }
   };
 

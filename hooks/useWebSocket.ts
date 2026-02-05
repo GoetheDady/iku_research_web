@@ -44,7 +44,9 @@ export const useWebSocket = (
 
   const initializeWebSocket = useCallback((
     promptValue: string, 
-    chatBoxSettings: ChatBoxSettings
+    chatBoxSettings: ChatBoxSettings,
+    fileIds?: string[],
+    taskId?: string
   ) => {
     // Close existing socket if any
     if (socket && socket.readyState === WebSocket.OPEN) {
@@ -77,6 +79,8 @@ export const useWebSocket = (
         // Start a new research
         try {
           console.log(`Starting new research for: ${promptValue}`);
+          // Use provided taskId or generate a new one
+          const sessionTaskId = taskId || Date.now().toString();
           const dataToSend = { 
             task: promptValue,
             report_type, 
@@ -85,7 +89,9 @@ export const useWebSocket = (
             query_domains: domains,
             mcp_enabled: mcp_enabled || false,
             mcp_strategy: mcp_strategy || "fast",
-            mcp_configs: mcp_configs || []
+            mcp_configs: mcp_configs || [],
+            task_id: sessionTaskId,
+            file_ids: fileIds || []
           };
           
           // Make sure we have a properly formatted command with a space after start

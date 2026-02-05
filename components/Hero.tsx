@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 type THeroProps = {
   promptValue: string;
   setPromptValue: React.Dispatch<React.SetStateAction<string>>;
-  handleDisplayResult: (query: string) => void;
+  handleDisplayResult: (query: string, fileIds?: string[], taskId?: string) => void;
 };
 
 const Hero: FC<THeroProps> = ({

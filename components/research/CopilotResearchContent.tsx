@@ -14,7 +14,7 @@ interface CopilotResearchContentProps {
   chatPromptValue: string;
   setPromptValue: Dispatch<SetStateAction<string>>;
   setChatPromptValue: Dispatch<SetStateAction<string>>;
-  handleDisplayResult: (question: string) => void;
+  handleDisplayResult: (question: string, fileIds?: string[], taskId?: string) => void;
   handleChat: (message: string) => void;
   handleClickSuggestion: (value: string) => void;
   currentResearchId?: string;
